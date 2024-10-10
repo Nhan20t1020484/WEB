@@ -1,0 +1,51 @@
+.header{
+    width: 100%;
+    height: 10%;
+    background-color: #000000;
+    position:fixed;
+    z-index: 999;
+}
+.main{
+    width: 100%;
+    height: 70%;
+    background-color: #000000;
+    position:absolute;
+    margin-top: 40%;
+    float: left;
+}
+.footer{
+    width: 100%;
+    height: 20%;
+    background-color: rgb(253, 152, 0) !important;
+    position:absolute;
+    margin-top: 70%;
+}
+.advertisement{
+    position: absolute;
+    margin-top: 4.5%;
+    width: 100%;
+}
+.main-1{
+    width: 25%;
+    background-color: rgb(253, 152, 0) !important;
+    float: left;
+    margin-left: 5%;
+    margin-top: 5%;
+    height: 50%;
+}
+.main-2{
+    width: 25%;
+    background-color: rgb(253, 152, 0) !important;
+    float: left;
+    margin-left: 5%;
+    margin-top: 5%;
+    height: 50%;
+}
+.main-3{
+    width: 25%;
+    background-color: rgb(253, 152, 0) !important;
+    float: left;
+    margin-left: 5%;
+    margin-top: 5%;
+    height: 50%;
+}

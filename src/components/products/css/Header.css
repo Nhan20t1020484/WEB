@@ -1,0 +1,78 @@
+.header{
+    width: 25%;
+    height: 10%;
+    background-color: #2c699e;
+    position: absolute;
+}
+.header-2{
+    width: 13%;
+    height: 10%;
+    background-color: #2c699e;
+    position: absolute;
+    margin-left: 25.1%;
+}
+.header-3{
+    width: 25%;
+    height: 10%;
+    background-color: #2c699e;
+    position: absolute;
+    margin-left: 38.2%;
+}
+.header-4{
+    width: 37%;
+    height: 10%;
+    background-color: #2c699e;
+    position: absolute;
+    margin-left: 63.3%;
+}
+.text-header{
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+/* Style cho div dropdown */
+.dropdown-toggle {
+    background-color: transparent !important;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-block;
+    width: 84%;
+    height: 71px;
+    margin-top: -30%;
+    position: absolute;
+  }
+  
+  /* Style cho dropdown menu */
+  .dropdown-menu {
+    display: block;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: -4px;
+  }
+  
+  /* Style cho các link trong dropdown */
+  .dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Hover effect cho link */
+  .dropdown-menu a:hover {
+    background-color: #f1f1f1;
+  }
+  .drowdown-plant{
+    color: rgb(66, 139, 202);
+    margin-left: 3%;
+    font-weight: bold;
+  }
+  
+
+

@@ -23,8 +23,6 @@ export function Register() {
         <center>
         <div className="fomr-Register">
             <h1>Đăng Kí Tài Khoản Ngay</h1>
-            
-
             <Formik
                 initialValues={
                     {

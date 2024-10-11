@@ -12,6 +12,7 @@ export function Login() {
             let data = await baseAxios(METHOD_HTTP.POST, "/login", values);
             console.log("Data", data);
             localStorage.setItem("token", data.token)
+            alert(data.message);
             navigate("/home");
         } catch(e) {
             alert(e.message);
@@ -34,10 +35,10 @@ export function Login() {
             >
                 <Form>
                     <h3>Tên Đăng Nhập</h3>
-                    <Field type="text" placeholder="Username" class="username"></Field>
+                    <Field type="text" placeholder="Username" name="username"></Field>
                     <br />
                     <h3>Mật Khẩu</h3>
-                    <Field type="password" placeholder="Password" class="password"></Field>
+                    <Field type="password" placeholder="Password" name="password"></Field>
                     <br />
                     <Link to={"/register"}>Đăng Kí Ngay</Link>
                     <br />

@@ -1,8 +1,11 @@
+import "../css/Footer.css";
+
 export function Footer() {
     return (
         <>
-            <hr />
-            <h1>Footer</h1>
+           <div className="Footer">
+                <h1>Footer</h1>
+           </div>
         </>
     )
 }

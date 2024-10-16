@@ -21,9 +21,11 @@ export function Login() {
     }
     return (
         <>
-        <center>
             <div className="form-login">
-            <h1>Chào Mừng Bạn Đến Cửa Hàng Chúng Tôi</h1>           
+                <img className="img-login" src="https://student.husc.edu.vn/Themes/Login/images/Logo-ko-nen.png" alt="" 
+                />
+                <img className="img-login-2" src="https://student.husc.edu.vn/Themes/Login/images/image1.png" alt="" 
+                />       
             <Formik
                 initialValues={
                     {
@@ -34,6 +36,8 @@ export function Login() {
                 onSubmit={submit}
             >
                 <Form>
+                    <div className="login"> 
+                    <h1 className="text-form-admin">Tài Khoản Admin</h1>      
                     <h3>Tên Đăng Nhập</h3>
                     <Field type="text" placeholder="Username" name="username"></Field>
                     <br />
@@ -44,9 +48,10 @@ export function Login() {
                     <br />
                     <br />
                     <button className="button-login">Đăng Nhập</button>
+                    </div>
                 </Form>
             </Formik>
-            </div> </center>
+            </div> 
         </>
     )
 }

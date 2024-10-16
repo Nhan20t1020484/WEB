@@ -8,6 +8,10 @@ export function Header() {
     const toggleDropdown = () => {
         setIsOpen(!isOpen);  // Toggle trạng thái dropdown
     };
+    const [isOpen123, setIsOpen123] = useState(false); 
+    const toggleDropdown123 = () => {
+        setIsOpen123(!isOpen123);  // Toggle trạng thái dropdown
+    };
 
     return (
         <>
@@ -20,9 +24,7 @@ export function Header() {
             </div>
 
             <div className="header-2">
-                <h2 className="text-header"> Hỗ Trợ Hoạt Động Học Tập 🔽</h2>
-
-                {/* Dropdown div bên trong header-2 */}
+                <h2 className="text-header"> Hỗ Trợ Hoạt Động Học Tập </h2>
                 <div className="dropdown-container">
                     <div onClick={toggleDropdown} className="dropdown-toggle">
                     </div>
@@ -50,10 +52,21 @@ export function Header() {
             </div>
 
             <div className="header-3">
-                <h1 className="text-header"> LOGO</h1>
+                <h2 className="text-header"> Học Phí - Lệ Phí</h2>
+                <div className="dropdown-container-3">
+                    <div onClick={toggleDropdown123} className="dropdown-toggle-3">
+                    </div>
+
+                    {isOpen123 && (
+                        <div className="dropdown-menu-3">
+                            <Link to="/option1">Nộp Học Phí Trực Tuyến</Link>
+                            <Link to="/option2">Tra Cứu Lịch Sử Nộp Học Phí</Link>              
+                        </div>
+                    )}
+                </div>
             </div>
             <div className="header-4">
-                <h1 className="text-header"> LOGO</h1>
+                <h1 className="text-header"></h1>
             </div>
         </>
     );

@@ -2,6 +2,16 @@ import { Field, Form, Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import baseAxios, { METHOD_HTTP } from "../../configs/baseAxios";
 import "../css/Register.css";
+import * as Yup from "yup";
+
+const UserSchema = Yup.object().shape({
+    username: Yup.string()
+        // .min(2, 'Phai lon hon 2 ky tu!')
+        // .max(50, 'Too Long!')
+        .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, "khong dung dinh dang")
+        .required('Required'),
+    password: Yup.string().required('Required')
+});
 
 export function Register() {
     const navigate = useNavigate();
@@ -30,6 +40,7 @@ export function Register() {
                         password: ''
                     }
                 }
+                validationSchema={UserSchema}
                 onSubmit={submit}
             >
                 <Form>

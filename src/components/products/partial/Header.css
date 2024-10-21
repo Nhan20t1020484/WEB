@@ -1,0 +1,53 @@
+.form-header {
+    display: flex;
+    justify-content: space-between; /* Căn đều các phần tử: logo, menu, user info */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 10px 20px; /* Khoảng đệm bên trong header */
+    background-color: #333; /* Màu nền của header */
+    color: white; /* Màu chữ */
+}
+
+.form-header h1 {
+    color: #fff;
+}
+
+.logo {
+    height: 50px; /* Kích thước logo */
+}
+
+.menu {
+    display: flex;
+    gap: 15px; /* Khoảng cách giữa các nút */
+}
+
+.menu button {
+    background-color: transparent; /* Màu nền nút */
+    color: white; /* Màu chữ */
+    border: none; /* Bỏ viền */
+    padding: 10px 20px; /* Khoảng đệm trong nút */
+    cursor: pointer; /* Đổi con trỏ khi hover */
+    border-radius: 5px; /* Bo tròn góc nút */
+    transition: background-color 0.3s ease; /* Hiệu ứng hover */
+}
+
+.menu button:hover {
+    background-color: #45a049; /* Đổi màu khi hover */
+}
+
+.user-info {
+    font-size: 18px; /* Kích thước chữ cho username */
+}
+.logout-btn {
+    background-color: #f44336; /* Màu nền đỏ */
+    color: white; /* Màu chữ trắng */
+    border: none; /* Bỏ viền */
+    padding: 8px 16px; /* Khoảng đệm bên trong nút */
+    margin-left: 15px; /* Khoảng cách bên trái với username */
+    cursor: pointer; /* Đổi con trỏ khi hover */
+    border-radius: 5px; /* Bo tròn góc nút */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu khi hover */
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f; /* Đổi màu khi hover */
+}

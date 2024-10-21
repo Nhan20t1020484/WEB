@@ -1,73 +1,41 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "../css/Header.css";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { InfoContext } from "../../context/InfoContext";
+import "../partial/Header.css";
 
 export function Header() {
-    const [isOpen, setIsOpen] = useState(false);  // Trạng thái mở/đóng dropdown
+    const { user, setUser } = useContext(InfoContext);
+    const navigate = useNavigate();
 
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);  // Toggle trạng thái dropdown
-    };
-    const [isOpen123, setIsOpen123] = useState(false); 
-    const toggleDropdown123 = () => {
-        setIsOpen123(!isOpen123);  // Toggle trạng thái dropdown
-    };
+    // Hàm xử lý đăng xuất
+    const handleLogout = () => {
+        localStorage.removeItem("token"); // Xóa token khỏi localStorage
+        setUser(null); // Đặt user về null
+        navigate("/login"); // Điều hướng về trang đăng nhập
+    }
 
     return (
-        <>
-            <div className="header">
-                <img
-                    src="https://student.husc.edu.vn/images/logo.png"
-                    alt="Example Image"
-                    style={{ width: '300px', height: '60px', marginTop: '10px' }}
-                />
+        <div className="form-header">
+            {/* Logo bên trái */}
+            <div className="logo">
+                <img src="/path-to-your-logo.png" alt="Logo" />
             </div>
 
-            <div className="header-2">
-                <h2 className="text-header"> Hỗ Trợ Hoạt Động Học Tập </h2>
-                <div className="dropdown-container">
-                    <div onClick={toggleDropdown} className="dropdown-toggle">
-                    </div>
+            {/* Menu ở giữa */}
+            <nav className="menu">
+                <Link to="/home"><button>Cà Phê</button></Link>
+                <Link to="/about"><button>Về Chúng Tôi</button></Link>
+                <Link to="/services"><button>Thực Đơn</button></Link>
+                <Link to="/contact"><button>Ưu Đãi</button></Link>
+            </nav>
 
-                    {isOpen && (
-                        <div className="dropdown-menu">
-                            <h3 className="drowdown-plant">Kế Hoạch Học Tập</h3>
-                            <Link to="/option1">Đăng Kí Học Tập</Link>
-                            <Link to="/option2">Lớp Học Phần Đã Đăng Kí</Link>
-                            <Link to="/option3">Lịch Trình Học Tập</Link>
-                            <Link to="/option3">Lịch Thi Kết Thúc Học Phần</Link>
-                            <h3 className="drowdown-plant">Hỗ Trợ - Tra Cứu Thông Tin</h3>
-                            <Link to="/option1">Chương Trình Đào Tạo</Link>
-                            <h3 className="drowdown-plant">Số Liệu - Tổng Hợp</h3>
-                            <Link to="/option1">Lịch Sử Quá Trình Học Tập</Link>
-                            <Link to="/option2">Kết Quả Học Tập</Link>
-                            <Link to="/option3">Kết Quả Rèn Luyện</Link>
-                            <Link to="/option3">Bằng Và Chứng Chỉ Điều Kiện</Link>
-                            <Link to="/option3">Hồ Sơ Tốt Nghiệp</Link>
-                            <h3 className="drowdown-plant">Đảm Bảo Chất Lượng Giáo Dục</h3>
-                            <Link to="/option3">Khảo Sát Hoạt Động Giảng Dạy</Link>              
-                        </div>
-                    )}
-                </div>
+            {/* Thông tin username và nút Logout */}
+            <div className="user-info">
+                <span>{user ? user.username : "Guest"}</span>
+                {user && (
+                    <button onClick={handleLogout} className="logout-btn">Logout</button>
+                )}
             </div>
-
-            <div className="header-3">
-                <h2 className="text-header"> Học Phí - Lệ Phí</h2>
-                <div className="dropdown-container-3">
-                    <div onClick={toggleDropdown123} className="dropdown-toggle-3">
-                    </div>
-
-                    {isOpen123 && (
-                        <div className="dropdown-menu-3">
-                            <Link to="/option1">Nộp Học Phí Trực Tuyến</Link>
-                            <Link to="/option2">Tra Cứu Lịch Sử Nộp Học Phí</Link>              
-                        </div>
-                    )}
-                </div>
-            </div>
-            <div className="header-4">
-                <h1 className="text-header"></h1>
-            </div>
-        </>
-    );
+        </div>
+    )
 }

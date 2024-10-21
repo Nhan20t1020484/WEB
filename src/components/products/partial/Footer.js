@@ -1,19 +1,27 @@
-import "../css/Footer.css";
+import "../partial/Footer.css";
 
 export function Footer() {
     return (
-        <>
-            <div className="Footer">
-                <center><p className="footer-text">Trường Đại học Khoa học – Đại học Huế</p></center>
-
-                <center><p className="footer-text">Địa chỉ: 77 Nguyễn Huệ, Thành phố Huế, Thừa Thiên Huế, Việt Nam</p></center>
-
-                <center><p className="footer-text">Điện thoại: (+84) 0234.3823290 – Fax: (+84) 0234.3824901</p></center>
-
-                <center><p className="footer-text">Website: http://www.husc.edu.vn</p></center>
-
-                <center><p className="footer-text">© Trần Nguyên Phong, Khoa Công nghệ Thông tin</p></center>
+        <div className="footer">
+            <div className="footer-section">
+                <h3>Coffe NTN</h3>
+                <p>Địa chỉ: H30 Đức Bưu 6, Thành Phố Huế, Tỉnh Thừa Thiên Huế</p>
+                <p>Email: thanhnhannguyen190502@gmail.com</p>
+                <p>FaceBook: facebook.com/snskct12345</p>
+                <p>Intagram : n_boyyyyyy</p>
             </div>
-        </>
+            <div className="footer-section">
+                <h3>Liên Kết Công Ty</h3>
+                <ul>
+                    <li><a href="/about">Giới Thiệu</a></li>
+                    <li><a href="/contact">Liên Hệ</a></li>
+                    <li><a href="/privacy-policy">Chính Sách Bảo Mật</a></li>
+                </ul>
+            </div>
+            <div className="footer-section">
+                <h3>Thông Tin Bản Quyền</h3>
+                <p>&copy; Cà Phê VIP của Nguyễn Thành Nhân</p>
+            </div>
+        </div>
     )
 }

@@ -1,8 +1,8 @@
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import baseAxios, { METHOD_HTTP } from "../../configs/baseAxios";
-import "../css/Register.css";
 import * as Yup from "yup";
+import "../css/Register.css";
 
 const UserSchema = Yup.object().shape({
     username: Yup.string()
@@ -29,10 +29,7 @@ export function Register() {
        
     }
     return (
-        <>
-        <center>
-        <div className="fomr-Register">
-            <h1>Đăng Kí Tài Khoản Ngay</h1>
+        <div className="form-register">
             <Formik
                 initialValues={
                     {
@@ -44,25 +41,37 @@ export function Register() {
                 onSubmit={submit}
             >
                 <Form>
-                    <h3>
-                        Tên Đăng Nhập
-                    </h3>
-                    <Field type="text" placeholder="Tên Đăng Nhập" name="username"></Field>
+                    <div className="register">
+                        <h1>Đăng Kí Tài Khoản</h1>
+                        <h3>Tên Đăng Nhập</h3>
+                    <Field type="text" placeholder="Username" name="username"></Field>
                     <br />
-                    <h3>
-                        Mật Khẩu
-                    </h3>
-                    <Field type="password" placeholder="Mật Khẩu" name="password"></Field>
+                    <span style={{color: "red"}}><ErrorMessage name={"username"}/></span><br/>
+                    <h3>Mật Khẩu</h3>
+                    <Field type="password" placeholder="Password" name="password"></Field>
                     <br />
-                    <Link to={"/login"}>Login now?</Link>
+                    <span style={{color: "red"}}><ErrorMessage name={"password"}/></span><br/>
+                    <h3>Xác Nhận Lại Mật Khẩu</h3>
+                    <Field type="password" placeholder="Password" name="confine-password"></Field>
+                    <br />
+                    <span style={{color: "red"}}><ErrorMessage name={"password"}/></span><br/>
+                    <h3>Số Điện Thoại</h3>
+                    <Field type="text" placeholder="Số Điện Thoại" name="phone"></Field>
+                    <br />
+                    <span style={{color: "red"}}><ErrorMessage name={"password"}/></span><br/>
+                    <h3>Địa Chỉ</h3>
+                    <Field type="text" placeholder="Địa Chỉ" name="address"></Field>
+                    <br />
+                    <span style={{color: "red"}}><ErrorMessage name={"password"}/></span><br/>
+                    <Link to={"/login"}>Đăng Nhập Ngay</Link>
                     <br />
                     <br />
-                    <center><button className="button-register">Submit</button></center>
+                    <button className="button-register">Submit</button>
+                    </div>
                 </Form>
+                
             </Formik>
-            </div>
-            </center>
 
-        </>
+            </div>
     )
 }

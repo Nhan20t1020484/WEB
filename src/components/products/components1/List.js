@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import baseAxios, { METHOD_HTTP } from "../../../configs/baseAxios";
+import baseAxios, { METHOD_HTTP } from "../../../configs/baseAxios.js";
 
 export function List() {
     const [list, setList] = useState([]);
@@ -19,8 +19,7 @@ export function List() {
     }
     return (
         <>
-            <h1>List</h1>
-            
+            <h1>List</h1>          
         </>
     )
 }

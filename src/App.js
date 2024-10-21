@@ -3,19 +3,24 @@ import { Main } from "./components/products/partial/Main";
 import { List } from "./components/products/components1/List";
 import { Add } from "./components/products/components1/Add";
 import { Edit } from "./components/products/components1/Edit";
-import { Login } from "./components/urses/Login";
-import { Register } from "./components/urses/Register";
-import { useEffect, useState } from "react";
+import { Login } from "../src/components/urses/Login";
+import { Register } from "../src/components/urses/Register";
+import { useContext, useEffect, useState } from "react";
+import { InfoContext, InfoProvider } from "./components/context/InfoContext";
 
 
 function App() {
-  const token = localStorage.getItem("token"); // null
+  // const token = localStorage.getItem("token"); // lay ngay khi chay chuong trinh => đăng nhập xong token mới sinh ra
+  // => null
+  // user
+
+  const { user } = useContext(InfoContext);
+  console.log("App.user", user);
   return (
     <>
-
       <Routes>
         {
-          token ? <>
+          user ? <>
             <Route element={<Main />} path="">
               <Route element={<List />} path="home" />
               <Route element={<Add />} path="add" />
@@ -29,6 +34,7 @@ function App() {
               <Route path="*" element={<Navigate to="/login" replace />} />
             </>
         }
+
       </Routes>
     </>
   );

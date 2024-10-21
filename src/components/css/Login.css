@@ -1,64 +1,52 @@
-.form-login{
-    width: 100%;
-    height: 100%;
-    background-color: rgb(81, 186, 228);
-    display: grid;
-    place-items: center;
-    position: absolute;
+.form-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Chiều cao toàn bộ trang */
+    background: linear-gradient(to right, #8360c3, #2ebf91); /* Gradient đẹp mắt với màu tím và xanh lá */
+    /* Hoặc bạn có thể thử gradient dưới đây để tạo hiệu ứng màu sắc nhẹ nhàng hơn */
+    /* background: linear-gradient(to right, #ff9a8b, #ff6a88, #d06ab6, #ff9bd1); */
 }
-.img-login{
-    position: absolute;
-    width: 10%;
+
+.login {
+    width: 300px; /* Đặt chiều rộng của form */
+    padding: 20px;
+    background-color: white; /* Thêm màu nền nếu muốn */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Thêm bóng đổ để form nổi bật */
+    height: 420px;
+    border-radius: 10px; /* Bo góc cho form */
 }
-.img-login-2{
-    position: absolute;
-    width: 32%;
-    margin-left: -60%;
-}
-.button-login{
-    background-color: #4CAF50;
-    /* Màu nền */
-    border: none;
-    /* Không viền */
-    color: white;
-    /* Màu chữ */
-    padding: 15px 32px;
-    /* Khoảng đệm */
-    text-align: center;
-    /* Căn giữa chữ */
-    text-decoration: none;
-    /* Không gạch chân */
-    display: inline-block;
-    /* Hiển thị nội tuyến */
-    font-size: 16px;
-    /* Kích thước chữ */
-    margin: 10px 2px;
-    /* Khoảng cách bên ngoài */
-    cursor: pointer;
-    /* Hình dạng con trỏ khi rê chuột */
-    transition: background-color 0.3s ease;
-    /* Hiệu ứng chuyển màu nền */ 
+
+.button-login {
+    background-color: #4CAF50; /* Màu nền */
+    border: none; /* Bỏ đường viền */
+    color: white; /* Màu chữ */
+    padding: 15px 32px; /* Khoảng đệm bên trong nút */
+    text-align: center; /* Căn giữa chữ */
+    text-decoration: none; /* Bỏ gạch chân chữ */
+    display: inline-block; /* Hiển thị như một khối inline */
+    font-size: 16px; /* Kích thước chữ */
+    margin: 10px 0; /* Khoảng cách giữa nút và phần tử khác */
+    cursor: pointer; /* Thay đổi con trỏ thành bàn tay khi hover */
+    border-radius: 5px; /* Bo góc nút */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu khi hover */
 }
 
 .button-login:hover {
-    background-color: #45a049;
-    /* Màu nền khi rê chuột */
+    background-color: #45a049; /* Thay đổi màu khi hover */
+}
+/* Định dạng cho các ô nhập (Field) */
+input[type="text"], input[type="password"] {
+    width: 100%; /* Để ô nhập chiếm toàn bộ chiều rộng của bố cục */
+    padding: 10px; /* Khoảng cách giữa nội dung và biên của ô nhập */
+    font-size: 16px; /* Cỡ chữ trong ô nhập */
+    border: 1px solid #ccc; /* Viền xung quanh ô nhập */
+    border-radius: 5px; /* Bo góc cho ô nhập */
+    margin-bottom: 15px; /* Khoảng cách giữa các ô nhập */
+    box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước tổng thể */
 }
 
-.button-login:active {
-    background-color: #3e8e41;
-    /* Màu nền khi nhấn */
-    transform: scale(0.98);
-    /* Hiệu ứng nhấn nhẹ */
-}
-.login{
-    margin-left: 150%;
-    width: 200%;
-    background-color: white;
-    height: 400%;
-}
-.text-form-admin{
-    text-align: left;
-    margin-left: 5%;
-    margin-top: 5%;
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #4CAF50; /* Màu viền khi ô nhập đang được chọn */
+    outline: none; /* Bỏ viền ngoài khi ô nhập được chọn */
 }

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { InfoContext } from "../../context/InfoContext";
 import "../partial/Header.css";
@@ -7,11 +7,19 @@ export function Header() {
     const { user, setUser } = useContext(InfoContext);
     const navigate = useNavigate();
 
+    // Trạng thái để kiểm soát việc hiển thị dropdown
+    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
     // Hàm xử lý đăng xuất
     const handleLogout = () => {
-        localStorage.removeItem("token"); // Xóa token khỏi localStorage
-        setUser(null); // Đặt user về null
-        navigate("/login"); // Điều hướng về trang đăng nhập
+        localStorage.removeItem("token"); 
+        setUser(null); 
+        navigate("/login"); 
+    }
+
+    // Hàm để thay đổi trạng thái khi nhấn vào nút dropdown
+    const toggleDropdown = () => {
+        setIsDropdownVisible(!isDropdownVisible);
     }
 
     return (
@@ -29,11 +37,22 @@ export function Header() {
                 <Link to="/contact"><button>Ưu Đãi</button></Link>
             </nav>
 
-            {/* Thông tin username và nút Logout */}
+            {/* Thông tin username và dropdown */}
             <div className="user-info">
-                <span>{user ? user.username : "Guest"}</span>
-                {user && (
-                    <button onClick={handleLogout} className="logout-btn">Logout</button>
+                <button onClick={toggleDropdown} className="dropdown-btn">
+                    {user ? user.username : "Guest"}
+                </button>
+                {isDropdownVisible && (
+                    <div className="dropdown-menu">
+                        {user ? (
+                            <>
+                                <div className="dropdown-item">{user.username}</div>
+                                <div className="dropdown-item" onClick={handleLogout}>Logout</div>
+                            </>
+                        ) : (
+                            <Link to="/login" className="dropdown-item">Login</Link>
+                        )}
+                    </div>
                 )}
             </div>
         </div>

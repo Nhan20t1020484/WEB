@@ -1,52 +1,93 @@
-.form-login {
+/* General styles */
+body {
+    background-color: #f0f2f5;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Chiều cao toàn bộ trang */
-    background: linear-gradient(to right, #8360c3, #2ebf91); /* Gradient đẹp mắt với màu tím và xanh lá */
-    /* Hoặc bạn có thể thử gradient dưới đây để tạo hiệu ứng màu sắc nhẹ nhàng hơn */
-    /* background: linear-gradient(to right, #ff9a8b, #ff6a88, #d06ab6, #ff9bd1); */
+    height: 100vh;
+    flex-direction: column;
 }
 
-.login {
-    width: 300px; /* Đặt chiều rộng của form */
+.login-intro {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    color: #1877f2;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.login-form {
+    background-color: white;
     padding: 20px;
-    background-color: white; /* Thêm màu nền nếu muốn */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Thêm bóng đổ để form nổi bật */
-    height: 420px;
-    border-radius: 10px; /* Bo góc cho form */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 320px;
 }
 
-.button-login {
-    background-color: #4CAF50; /* Màu nền */
-    border: none; /* Bỏ đường viền */
-    color: white; /* Màu chữ */
-    padding: 15px 32px; /* Khoảng đệm bên trong nút */
-    text-align: center; /* Căn giữa chữ */
-    text-decoration: none; /* Bỏ gạch chân chữ */
-    display: inline-block; /* Hiển thị như một khối inline */
-    font-size: 16px; /* Kích thước chữ */
-    margin: 10px 0; /* Khoảng cách giữa nút và phần tử khác */
-    cursor: pointer; /* Thay đổi con trỏ thành bàn tay khi hover */
-    border-radius: 5px; /* Bo góc nút */
-    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu khi hover */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.button-login:hover {
-    background-color: #45a049; /* Thay đổi màu khi hover */
-}
-/* Định dạng cho các ô nhập (Field) */
-input[type="text"], input[type="password"] {
-    width: 100%; /* Để ô nhập chiếm toàn bộ chiều rộng của bố cục */
-    padding: 10px; /* Khoảng cách giữa nội dung và biên của ô nhập */
-    font-size: 16px; /* Cỡ chữ trong ô nhập */
-    border: 1px solid #ccc; /* Viền xung quanh ô nhập */
-    border-radius: 5px; /* Bo góc cho ô nhập */
-    margin-bottom: 15px; /* Khoảng cách giữa các ô nhập */
-    box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước tổng thể */
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-input[type="text"]:focus, input[type="password"]:focus {
-    border-color: #4CAF50; /* Màu viền khi ô nhập đang được chọn */
-    outline: none; /* Bỏ viền ngoài khi ô nhập được chọn */
+.forgot-password-link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #1877f2;
+    text-decoration: none;
+}
+
+.separator {
+    margin: 20px 0;
+    border: 1px solid #ddd;
+}
+
+.create-account-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #42b72a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.create-page {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+.create-account-link {
+    text-decoration: none;
+    display: block;
 }

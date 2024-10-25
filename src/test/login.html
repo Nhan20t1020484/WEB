@@ -1,56 +1,28 @@
-<!DOCTYPE html>
+<html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>Login / Sign Up Form</title>
-    <link rel="shortcut icon" href="/assets/favicon.ico">
-    <link rel="stylesheet" href="./src/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <form class="form" id="login">
-            <h1 class="form__title">Login</h1>
-            <div class="form__message form__message--error"></div>
-            <div class="form__input-group">
-                <input type="text" class="form__input" autofocus placeholder="Username or email">
-                <div class="form__input-error-message"></div>
+<body class="bg-gray-100 font-roboto">
+    <div class="flex justify-center items-center h-screen">
+        <div class="flex flex-col md:flex-row items-center md:items-start">
+            <div class="text-center md:text-left md:mr-16 mb-8 md:mb-0">
+                <h1 class="text-blue-600 text-6xl font-bold">facebook</h1>
+                <p class="text-xl mt-4">Facebook helps you connect and share with the people in your life.</p>
             </div>
-            <div class="form__input-group">
-                <input type="password" class="form__input" autofocus placeholder="Password">
-                <div class="form__input-error-message"></div>
+            <div class="bg-white p-8 rounded-lg shadow-md w-80">
+                <input type="text" placeholder="Email address or phone number" class="w-full p-3 mb-4 border border-gray-300 rounded">
+                <input type="password" placeholder="Password" class="w-full p-3 mb-4 border border-gray-300 rounded">
+                <button class="w-full bg-blue-600 text-white p-3 rounded font-bold text-lg mb-4">Log in</button>
+                <a href="#" class="text-blue-600 text-sm mb-4 block text-center">Forgotten password?</a>
+                <hr class="my-4">
+                <button class="w-full bg-green-600 text-white p-3 rounded font-bold text-lg">Create new account</button>
             </div>
-            <button class="form__button" type="submit">Continue</button>
-            <p class="form__text">
-                <a href="#" class="form__link">Forgot your password?</a>
-            </p>
-            <p class="form__text">
-                <a class="form__link" href="./" id="linkCreateAccount">Don't have an account? Create account</a>
-            </p>
-        </form>
-        <form class="form form--hidden" id="createAccount">
-            <h1 class="form__title">Create Account</h1>
-            <div class="form__message form__message--error"></div>
-            <div class="form__input-group">
-                <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Username">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="text" class="form__input" autofocus placeholder="Email Address">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="password" class="form__input" autofocus placeholder="Password">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="password" class="form__input" autofocus placeholder="Confirm password">
-                <div class="form__input-error-message"></div>
-            </div>
-            <button class="form__button" type="submit">Continue</button>
-            <p class="form__text">
-                <a class="form__link" href="./" id="linkLogin">Already have an account? Sign in</a>
-            </p>
-        </form>
+        </div>
     </div>
-    <script src="./src/main.js"></script>
+    <div class="text-center mt-8">
+        <p class="text-sm">Create a Page for a celebrity, brand or business.</p>
+    </div>
 </body>
+</html>

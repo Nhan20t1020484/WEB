@@ -6,11 +6,14 @@ import "../css/Register.css";
 
 const UserSchema = Yup.object().shape({
     username: Yup.string()
-        // .min(2, 'Phai lon hon 2 ky tu!')
-        // .max(50, 'Too Long!')
-        .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, "khong dung dinh dang")
-        .required('Required'),
-    password: Yup.string().required('Required')
+        .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, "Vui lòng nhập email")
+        .required('Không được để trống'),
+    password: Yup.string().required('Không được để trống'),
+    gender: Yup.string().required('Vui lòng chọn giới tính'),
+    phone: Yup.string()
+        .matches(/^[0-9]+$/, "Số điện thoại chỉ được nhập số")
+        .required("Không được để trống"), 
+    address: Yup.string().required("Không được để trống"),
 });
 
 export function Register() {
@@ -23,20 +26,21 @@ export function Register() {
             console.log("Data", data);
             alert(data.message);
             navigate("/login");
-        } catch(e) {
+        } catch (e) {
             alert(e.message);
         }
-       
     }
+
     return (
         <div className="form-register">
             <Formik
-                initialValues={
-                    {
-                        username: '',
-                        password: ''
-                    }
-                }
+                initialValues={{
+                    username: '',
+                    password: '',
+                    gender: '',
+                    phone: '',
+                    address: '',
+                }}
                 validationSchema={UserSchema}
                 onSubmit={submit}
             >
@@ -44,34 +48,50 @@ export function Register() {
                     <div className="register">
                         <h1>Đăng Kí Tài Khoản</h1>
                         <h3>Tên Đăng Nhập</h3>
-                    <Field type="text" placeholder="Username" name="username"></Field>
-                    <br />
-                    <span style={{color: "red"}}><ErrorMessage name={"username"}/></span><br/>
-                    <h3>Mật Khẩu</h3>
-                    <Field type="password" placeholder="Password" name="password"></Field>
-                    <br />
-                    <span style={{color: "red"}}><ErrorMessage name={"password"}/></span><br/>
-                    <h3>Xác Nhận Lại Mật Khẩu</h3>
-                    <Field type="password" placeholder="Password" name="confine-password"></Field>
-                    <br />
-                    <span style={{color: "red"}}><ErrorMessage name={"password"}/></span><br/>
-                    <h3>Số Điện Thoại</h3>
-                    <Field type="text" placeholder="Số Điện Thoại" name="phone"></Field>
-                    <br />
-                    <span style={{color: "red"}}><ErrorMessage name={"password"}/></span><br/>
-                    <h3>Địa Chỉ</h3>
-                    <Field type="text" placeholder="Địa Chỉ" name="address"></Field>
-                    <br />
-                    <span style={{color: "red"}}><ErrorMessage name={"password"}/></span><br/>
-                    <Link to={"/login"}>Đăng Nhập Ngay</Link>
-                    <br />
-                    <br />
-                    <button className="button-register">Submit</button>
+                        <Field type="text" placeholder="Username" name="username" />
+                        <span style={{ color: "red" }}>
+                            <ErrorMessage name="username" />
+                        </span>
+
+                        <h3>Mật Khẩu</h3>
+                        <Field type="password" placeholder="Password" name="password" />
+                        <span style={{ color: "red" }}>
+                            <ErrorMessage name="password" />
+                        </span>
+                        <h3>Giới Tính</h3>
+                        <div role="group" aria-labelledby="gender">
+                            <label className="gender-option">
+                                <Field type="radio" name="gender" value="male" />
+                                <label>Nam</label>
+                            </label>
+                            <label className="gender-option">
+                                <Field type="radio" name="gender" value="female" />
+                                <label>Nữ</label>
+                            </label>
+                        </div>
+                        <span style={{ color: "red" }}>
+                            <ErrorMessage name="gender" />
+                        </span>
+
+                        <h3>Số Điện Thoại</h3>
+                        <Field type="text" placeholder="Số Điện Thoại" name="phone" />
+                        <span style={{ color: "red" }}>
+                            <ErrorMessage name="phone" />
+                        </span>
+
+                        <h3>Địa Chỉ</h3>
+                        <Field type="text" placeholder="Địa Chỉ" name="address" />
+                        <span style={{ color: "red" }}>
+                            <ErrorMessage name="address" />
+                        </span>
+
+                        <br />
+                        <Link to={"/login"}>Đăng Nhập Ngay</Link>
+                        <br />
+                        <center><button className="button-register" type="submit">Đăng Kí Ngay</button></center>
                     </div>
                 </Form>
-                
             </Formik>
-
-            </div>
+        </div>
     )
 }

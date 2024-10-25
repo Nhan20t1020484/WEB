@@ -37,6 +37,67 @@
 .user-info {
     font-size: 18px; /* Kích thước chữ cho username */
 }
+.dropdown-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+    position: relative;
+}
+
+/* Hiệu ứng hover cho dropdown */
+.dropdown-btn:hover {
+    background-color: #45a049;
+}
+
+/* CSS cho menu dropdown */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    z-index: 1;
+    width: 150px;
+}
+
+/* CSS cho các item trong dropdown */
+.dropdown-item {
+    padding: 12px 16px;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Hiệu ứng hover cho các item */
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Đảm bảo dropdown không bị vướng */
+.user-info {
+    position: relative;
+}
+/* CSS cho nút Logout */
+.logout-btn {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.show-username-btn:hover, .logout-btn:hover {
+    opacity: 0.8;
+}
 .logout-btn {
     background-color: #f44336; /* Màu nền đỏ */
     color: white; /* Màu chữ trắng */

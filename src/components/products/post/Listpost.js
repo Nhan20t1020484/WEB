@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import baseAxios, { METHOD_HTTP } from "../../../configs/baseAxios.js";
 
-export function List() {
+export function Listpost() {
     const [list, setList] = useState([]);
 
     useEffect(() => {

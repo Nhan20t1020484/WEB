@@ -1,114 +1,109 @@
+/* Header Container */
 .form-header {
     display: flex;
-    justify-content: space-between; /* Căn đều các phần tử: logo, menu, user info */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    padding: 10px 20px; /* Khoảng đệm bên trong header */
-    background-color: #333; /* Màu nền của header */
-    color: white; /* Màu chữ */
-}
-
-.form-header h1 {
-    color: #fff;
-}
-
-.logo {
-    height: 50px; /* Kích thước logo */
-}
-
-.menu {
-    display: flex;
-    gap: 15px; /* Khoảng cách giữa các nút */
-}
-
-.menu button {
-    background-color: transparent; /* Màu nền nút */
-    color: white; /* Màu chữ */
-    border: none; /* Bỏ viền */
-    padding: 10px 20px; /* Khoảng đệm trong nút */
-    cursor: pointer; /* Đổi con trỏ khi hover */
-    border-radius: 5px; /* Bo tròn góc nút */
-    transition: background-color 0.3s ease; /* Hiệu ứng hover */
-}
-
-.menu button:hover {
-    background-color: #45a049; /* Đổi màu khi hover */
-}
-
-.user-info {
-    font-size: 18px; /* Kích thước chữ cho username */
-}
-.dropdown-btn {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-left: 10px;
+    background-color: #333;
+    color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.logo {
+    width: 40px;
+    height: 40px;
+    background-color: #1877f2;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+/* Navigation Icons */
+.navigation-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Khoảng cách giữa các biểu tượng */
+}
+
+.icon {
+    font-size: 24px;
+    color: #606770;
     position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
-/* Hiệu ứng hover cho dropdown */
-.dropdown-btn:hover {
-    background-color: #45a049;
+.icon.active {
+    color: #1877f2;
 }
 
-/* CSS cho menu dropdown */
+.icon:hover {
+    color: #45a049;
+}
+
+.active-bar {
+    width: 32px;
+    height: 4px;
+    background-color: #1877f2;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* User Info Section */
+.user-info {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dropdown Menu */
 .dropdown-menu {
     position: absolute;
-    top: 100%;
     right: 0;
-    background-color: white;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    top: 100%;
+    background-color: #ffffff;
     border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    width: 150px;
+    display: none;
 }
 
-/* CSS cho các item trong dropdown */
+.user-info:hover .dropdown-menu {
+    display: block;
+}
+
 .dropdown-item {
-    padding: 12px 16px;
+    padding: 10px 15px;
     color: #333;
-    text-align: left;
     cursor: pointer;
-}
-
-/* Hiệu ứng hover cho các item */
-.dropdown-item:hover {
-    background-color: #f1f1f1;
-}
-
-/* Đảm bảo dropdown không bị vướng */
-.user-info {
-    position: relative;
-}
-/* CSS cho nút Logout */
-.logout-btn {
-    background-color: #f44336;
-    border: none;
-    color: white;
-    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    width: 100px;
     font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-left: 10px;
+    text-align: left;
 }
 
-.show-username-btn:hover, .logout-btn:hover {
-    opacity: 0.8;
-}
-.logout-btn {
-    background-color: #f44336; /* Màu nền đỏ */
-    color: white; /* Màu chữ trắng */
-    border: none; /* Bỏ viền */
-    padding: 8px 16px; /* Khoảng đệm bên trong nút */
-    margin-left: 15px; /* Khoảng cách bên trái với username */
-    cursor: pointer; /* Đổi con trỏ khi hover */
-    border-radius: 5px; /* Bo tròn góc nút */
-    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu khi hover */
-}
-
-.logout-btn:hover {
-    background-color: #d32f2f; /* Đổi màu khi hover */
+.dropdown-item:hover {
+    background-color: #f0f0f0;
 }

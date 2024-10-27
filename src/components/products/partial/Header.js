@@ -1,20 +1,23 @@
-import { useState, useContext } from "react";
+import { useState, useContext } from "react"; // Import useState
 import { Link, useNavigate } from "react-router-dom";
 import { InfoContext } from "../../context/InfoContext";
 import "../partial/Header.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';
+import { faSearch, faHome, faUsers, faTv, faStore, faGamepad, faTh, faBell } from '@fortawesome/free-solid-svg-icons';
 
 export function Header() {
     const { user, setUser } = useContext(InfoContext);
     const navigate = useNavigate();
-
+    
     // Trạng thái để kiểm soát việc hiển thị dropdown
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
     // Hàm xử lý đăng xuất
     const handleLogout = () => {
-        localStorage.removeItem("token"); 
-        setUser(null); 
-        navigate("/login"); 
+        localStorage.removeItem("token"); // Xóa token khỏi localStorage
+        setUser(null); // Đặt user về null
+        navigate("/login"); // Điều hướng về trang đăng nhập
     }
 
     // Hàm để thay đổi trạng thái khi nhấn vào nút dropdown
@@ -26,35 +29,38 @@ export function Header() {
         <div className="form-header">
             {/* Logo bên trái */}
             <div className="logo">
-                <img src="/path-to-your-logo.png" alt="Logo" />
+                    <FontAwesomeIcon icon={faFacebookF} />
+                </div>
+
+            <div className="navigation-icons">
+                <div className="icon active">
+                    <FontAwesomeIcon icon={faHome} />
+                    <div className="active-bar"></div>
+                </div>
+                <FontAwesomeIcon icon={faUsers} className="icon" />
+                <FontAwesomeIcon icon={faTv} className="icon" />
+                <FontAwesomeIcon icon={faStore} className="icon" />
+                <FontAwesomeIcon icon={faGamepad} className="icon" />
             </div>
 
-            {/* Menu ở giữa */}
-            <nav className="menu">
-                <Link to="/home"><button>Cà Phê</button></Link>
-                <Link to="/about"><button>Về Chúng Tôi</button></Link>
-                <Link to="/services"><button>Thực Đơn</button></Link>
-                <Link to="/contact"><button>Ưu Đãi</button></Link>
-            </nav>
-
-            {/* Thông tin username và dropdown */}
+            {/* Thông tin người dùng với hình ảnh và dropdown */}
             <div className="user-info">
-                <button onClick={toggleDropdown} className="dropdown-btn">
-                    {user ? user.username : "Guest"}
-                </button>
+                <div className="profile-picture" onClick={toggleDropdown}>
+                    <img alt="Profile" src="https://storage.googleapis.com/a1aa/image/4TmpbeXpksXKRCjyp6eeVeuEWWaptOKGB1GcEv2n0EamPBpOB.jpg" />
+                </div>
                 {isDropdownVisible && (
                     <div className="dropdown-menu">
                         {user ? (
                             <>
-                                <div className="dropdown-item">{user.username}</div>
-                                <div className="dropdown-item" onClick={handleLogout}>Logout</div>
+                                <Link to="/profile" className="dropdown-item">Xem Hồ Sơ</Link>
+                                <div className="dropdown-item" onClick={handleLogout}>Đăng Xuất</div>
                             </>
                         ) : (
-                            <Link to="/login" className="dropdown-item">Login</Link>
+                            <Link to="/login" className="dropdown-item">Đăng Nhập</Link>
                         )}
                     </div>
                 )}
             </div>
         </div>
-    )
+    );
 }

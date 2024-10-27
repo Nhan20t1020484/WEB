@@ -12,7 +12,7 @@ export const InfoProvider = ({ children }) => {
 
     const getInfo = async () => {
         try {
-            let data = await baseAxios(METHOD_HTTP.GET, "get-info");
+            let data = await baseAxios(METHOD_HTTP.GET, "/users/get-profile");
             setUser(data);
         } catch (e) {
             setUser(null);

@@ -1,69 +1,53 @@
-/* Footer chung */
+/* Footer Container */
 .footer {
-    background-color: #6F4F37; /* Màu nền tối */
-    color: white; /* Màu chữ trắng */
-    padding: 40px 20px; /* Khoảng cách trên dưới */
+    background-color: #6F4F37;
+    color: white;
+    padding: 40px 20px;
     display: flex;
-    justify-content: space-between; /* Căn đều các phần */
-    align-items: flex-start; /* Căn trên cho các phần tử */
-    gap: 20px; /* Khoảng cách giữa các phần */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Tạo bóng cho footer */
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
 }
 
-/* Mỗi phần trong footer */
+/* Each Section in Footer */
 .footer-section {
-    flex: 1; /* Các phần chiếm đều không gian */
+    flex: 1;
 }
 
-/* Tiêu đề trong các phần */
+/* Section Titles */
 .footer-section h3 {
-    font-size: 18px; /* Cỡ chữ tiêu đề */
-    margin-bottom: 15px; /* Khoảng cách dưới tiêu đề */
-    color: #00aaff; /* Màu chữ tiêu đề */
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #00aaff;
 }
 
-/* Các đoạn văn trong footer */
-.footer-section p, .footer-section ul {
-    font-size: 14px; /* Cỡ chữ */
-    color: #bbb; /* Màu chữ xám nhạt */
-}
-
-.footer-section ul {
-    list-style: none; /* Bỏ dấu chấm */
-    padding-left: 0;
-}
-
-.footer-section ul li {
-    margin: 8px 0; /* Khoảng cách giữa các liên kết */
+/* Paragraph Text in Footer */
+.footer-section p {
+    color: #bbb;
+    line-height: 1.5;
+    margin: 8px 0;
 }
 
 .footer-section a {
-    color: #bbb; /* Màu chữ cho liên kết */
-    text-decoration: none; /* Bỏ gạch chân */
-    transition: color 0.3s ease; /* Hiệu ứng chuyển màu khi hover */
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-    color: #00aaff; /* Màu khi hover */
+    color: #00aaff;
 }
 
-/* Responsive - Khi màn hình nhỏ hơn 768px, các phần sẽ xếp chồng lên nhau */
+/* Responsive Styling */
 @media screen and (max-width: 768px) {
     .footer {
-        flex-direction: column; /* Các phần xếp thành cột */
-        align-items: center; /* Căn giữa các phần */
+        flex-direction: column;
+        align-items: center;
     }
 
     .footer-section {
-        margin-bottom: 20px; /* Khoảng cách dưới mỗi phần */
-        text-align: center; /* Căn giữa nội dung */
-    }
-
-    .footer-section h3 {
-        margin-bottom: 10px;
-    }
-
-    .footer-section ul li {
-        margin: 5px 0;
+        margin-bottom: 20px;
+        text-align: center;
     }
 }

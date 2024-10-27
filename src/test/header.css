@@ -35,26 +35,25 @@ body {
 }
 
 .search-bar {
-    position: relative;
-    margin-left: 10px;
+    position: relative; /* Để đặt icon tìm kiếm bên trong ô tìm kiếm */
+    margin-left: 10px; /* Khoảng cách bên trái giữa logo và thanh tìm kiếm */
 }
-
 .search-input {
-    padding: 8px 16px 8px 36px;
-    background-color: #f0f2f5;
-    border-radius: 20px;
-    border: none;
-    outline: none;
+    padding: 8px 16px 8px 36px; /* Đặt khoảng cách trong của ô tìm kiếm */
+    background-color: #f0f2f5; /* Màu nền ô tìm kiếm */
+    border-radius: 20px; /* Bo tròn các góc */
+    border: none; /* Bỏ đường viền */
+    outline: none; /* Bỏ viền ngoài khi click vào */
+    width: 100px; /* Đặt chiều rộng cho ô tìm kiếm */
 }
-
 .search-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #606770;
+    position: absolute; /* Đặt vị trí tuyệt đối để icon nằm trong ô tìm kiếm */
+    left: 10px; /* Đặt icon tìm kiếm ở bên trái, cách 10px so với lề */
+    top: 50%; /* Đặt icon ở giữa theo trục dọc */
+    transform: translateY(-50%); /* Căn chỉnh icon theo chiều dọc */
+    color: #606770; /* Màu sắc của icon tìm kiếm */
+    font-size: 16px; /* Kích thước icon tìm kiếm */
 }
-
 .navigation-icons .icon {
     font-size: 24px;
     color: #606770;

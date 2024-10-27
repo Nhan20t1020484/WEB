@@ -9,8 +9,8 @@ export function Login() {
     const navigate = useNavigate();
     const { setUser } = useContext(InfoContext);
 
-    const getInfo = async () => {
-        let data = await baseAxios(METHOD_HTTP.GET, "get-info");
+    const getUser = async () => {
+        let data = await baseAxios(METHOD_HTTP.GET, "/users/get-profile");
         setUser(data);
     }
 
@@ -19,7 +19,7 @@ export function Login() {
         try {
             let data = await baseAxios(METHOD_HTTP.POST, "/login", values);
             localStorage.setItem("token", data.token);
-            await getInfo();
+            await getUser();
             navigate("/home");
         } catch (e) {
             alert(e.message);

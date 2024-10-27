@@ -1,97 +1,31 @@
-/* Căn chỉnh toàn bộ body */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Màu nền trang */
+/* Main Container */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 40px; /* Khoảng cách giữa các phần */
+  background-color: #f5f5f5; /* Màu nền nhạt */
 }
 
-/* Căn chỉnh phần Header */
-.form-header {
-    background-color: #333; /* Màu nền cho header */
-    color: white; /* Màu chữ trắng */
-    padding: 10px 20px; /* Khoảng đệm */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Center align images */
+.uppost, .searchpost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* Màu nền trắng cho ảnh */
+  border-radius: 8px; /* Bo tròn các góc */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+  padding: 20px;
+  transition: transform 0.3s ease; /* Hiệu ứng khi hover */
 }
 
-/* Căn chỉnh phần Footer */
-footer {
-    background-color: #333; /* Màu nền cho footer */
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0; /* Cố định footer ở cuối trang */
+.uppost:hover, .searchpost:hover {
+  transform: translateY(-5px); /* Di chuyển ảnh lên một chút khi hover */
 }
 
-/* Căn chỉnh phần nội dung chính */
-.container-list {
-    min-height: 80vh; /* Chiều cao tối thiểu, để đảm bảo footer không chèn lên nội dung */
-    padding: 20px; /* Khoảng cách bên trong */
-    background-color: white; /* Màu nền cho phần nội dung */
-    margin: 20px; /* Khoảng cách giữa phần nội dung với mép trang */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho phần nội dung */
-}
-
-/* Responsive - Điều chỉnh layout trên màn hình nhỏ */
-@media (max-width: 768px) {
-    .container-list {
-        margin: 10px; /* Thu nhỏ khoảng cách ngoài trên màn hình nhỏ */
-        padding: 15px; /* Giảm khoảng đệm trong */
-    }
-
-    .form-header {
-        flex-direction: column; /* Đưa header thành cột trên màn hình nhỏ */
-        align-items: flex-start;
-    }
-}
-/* Căn chỉnh slider */
-.slider {
-    width: 80%;
-    height: 400px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden; /* Đảm bảo ảnh không bị cắt */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Hình ảnh trong slider */
-.slider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* Nút Previous và Next */
-.prev-btn, .next-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5); /* Nền mờ */
-    color: white; /* Màu chữ */
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-size: 24px;
-    transition: background-color 0.3s ease;
-}
-
-.prev-btn:hover, .next-btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Vị trí của nút Previous */
-.prev-btn {
-    left: 10px;
-}
-
-/* Vị trí của nút Next */
-.next-btn {
-    right: 10px;
+/* Larger images */
+.uppost img, .searchpost img {
+  max-width: 200px; /* Kích thước tối đa lớn hơn cho ảnh */
+  height: auto;
 }

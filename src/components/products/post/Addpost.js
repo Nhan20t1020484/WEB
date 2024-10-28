@@ -1,45 +1,91 @@
-import { useState } from 'react';
-import axios from 'axios';
-import "../post/Addpost.css";
-import { Field, Form, Formik } from "formik";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../post/Addpost.css"
+import React from 'react';
 
 export function Addpost() {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [status, setStatus] = useState('');
-  const [type, setType] = useState('');
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+    const [status, setStatus] = useState("public"); // Default to public status
+    const [type, setType] = useState("general"); // Default to general type
+    const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('/posts', { title, content, status, type });
-      console.log('Post created:', response.data);
-      // Thực hiện các hành động khác sau khi tạo bài viết thành công, như điều hướng hoặc thông báo
-    } catch (error) {
-      console.error('Error creating post:', error);
-    }
-  };
+    // Handle form submission
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        // Construct new post data
+        const newPost = {
+            title,
+            content,
+            status,
+            type,
+        };
 
-  return (
-    <div>
-      <h1>Tạo Bài Viết Mới</h1>
-      <Formik
-                initialValues={{
-                    title: "",
-                    content: "",
-                    status: "",
-                    type: ""
-                }}
-                onSubmit={handleSubmit}
-            >
-      <Form >
-        <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-        <textarea placeholder="Content" value={content} onChange={(e) => setContent(e.target.value)}></textarea>
-        <input type="text" placeholder="Status" value={status} onChange={(e) => setStatus(e.target.value)} />
-        <input type="text" placeholder="Type" value={type} onChange={(e) => setType(e.target.value)} />
-        <button type="submit">Đăng Bài</button>
-      </Form>
-      </Formik>
-    </div>
-  );
+        try {
+            // Send post request to backend
+            const response = await fetch("/posts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newPost),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log("Post created:", data);
+                navigate("/"); 
+            } else {
+                console.error("Failed to create post");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
+
+    return (
+        <div className="add-post-container">
+            <h2>Create a New Post</h2>
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label>Title</label>
+                    <input
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Content</label>
+                    <textarea
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Status</label>
+                    <select value={status} onChange={(e) => setStatus(e.target.value)}>
+                        <option value="public">Public</option>
+                        <option value="private">Private</option>
+                    </select>
+                </div>
+
+                <div className="form-group">
+                    <label>Type</label>
+                    <select value={type} onChange={(e) => setType(e.target.value)}>
+                        <option value="general">General</option>
+                        <option value="announcement">Announcement</option>
+                        <option value="event">Event</option>
+                    </select>
+                </div>
+
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    );
 }

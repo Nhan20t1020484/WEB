@@ -1,25 +1,30 @@
-import { useEffect, useState } from "react"
-import baseAxios, { METHOD_HTTP } from "../../../configs/baseAxios.js";
+import { useEffect, useState } from "react";
+import "../post/Listpost.css";
 
 export function Listpost() {
-    const [list, setList] = useState([]);
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        getData();
-    }, [])
+        // Fetch posts from the API endpoint
+        fetch("/api/posts")
+            .then(response => response.json())
+            .then(data => setPosts(data))
+            .catch(error => console.error("Error fetching posts:", error));
+    }, []);
 
-    const getData = async () => {
-        try {
-            const data = await baseAxios(METHOD_HTTP.GET, "/products");
-            setList(data)
-        } catch (e) {
-            alert(e.message);
-        }
-
-    }
     return (
-        <>
-            <h1>List</h1>          
-        </>
-    )
+        <div className="post-list">
+            {posts.length > 0 ? (
+                posts.map(post => (
+                    <div key={post.id} className="post-item">
+                        <h2>{post.title}</h2>
+                        <p>{post.content}</p>
+                        <p className="author">Posted by {post.author}</p>
+                    </div>
+                ))
+            ) : (
+                <p>Chưa có bài viết nào </p>
+            )}
+        </div>
+    );
 }

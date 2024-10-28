@@ -2,26 +2,30 @@ import { useEffect, useState } from "react";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import "../partial/Main.css";
-import image1 from '../partial/img/post.png';
-import image2 from '../partial/img/searchpost.png';
-import { Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; 
+import { Listpost } from "../post/Listpost";
 
 export function Main() {
+    const navigate = useNavigate(); 
+
+    const handleAddPost = () => {
+        navigate("/addpost"); 
+    };
+    const handleSearchpost = () => {
+        navigate("/searchpost"); 
+    };
+
     return (
         <>
             <Header />
-            <div className="main">
-                <div className="uppost">
-                <Link to="/addpost">
-                        <img src={image1} alt="post" />
-                    </Link>
-                </div>
-           
-                <div className="searchpost">
+            <div>
+                <button className="btn btn-primary" onClick={handleAddPost}>
+                    Add Post
+                </button>
                 <Link to="/searchpost">
-                        <img src={image2} alt="searchpost" />
-                    </Link>
-                </div>
+                    <button className="btn btn-primary" onClick={handleSearchpost} >Search Post</button>
+                </Link>
+                <Listpost />
             </div>
             <Footer />
         </>

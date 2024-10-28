@@ -1,31 +1,24 @@
-/* Main Container */
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  gap: 40px; /* Khoảng cách giữa các phần */
-  background-color: #f5f5f5; /* Màu nền nhạt */
+.btn {
+  padding: 10px 20px; /* Khoảng cách bên trong nút */
+  font-size: 16px; /* Kích thước chữ */
+  font-weight: bold; /* Chữ đậm */
+  border: none; /* Bỏ đường viền */
+  border-radius: 5px; /* Bo tròn góc */
+  cursor: pointer; /* Con trỏ khi di chuột qua */
+  transition: background-color 0.3s, transform 0.3s; /* Hiệu ứng chuyển đổi */
 }
 
-/* Center align images */
-.uppost, .searchpost {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff; /* Màu nền trắng cho ảnh */
-  border-radius: 8px; /* Bo tròn các góc */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
-  padding: 20px;
-  transition: transform 0.3s ease; /* Hiệu ứng khi hover */
+.btn-primary {
+  background-color: #007bff; /* Màu nền nút */
+  color: white; /* Màu chữ */
 }
 
-.uppost:hover, .searchpost:hover {
-  transform: translateY(-5px); /* Di chuyển ảnh lên một chút khi hover */
+.btn-primary:hover {
+  background-color: #0056b3; /* Màu nền khi di chuột qua */
+  transform: scale(1.05); /* Tăng kích thước nhẹ khi di chuột qua */
 }
 
-/* Larger images */
-.uppost img, .searchpost img {
-  max-width: 200px; /* Kích thước tối đa lớn hơn cho ảnh */
-  height: auto;
+/* Tạo khoảng cách giữa các nút */
+button {
+  margin-right: 10px; /* Khoảng cách bên phải */
 }

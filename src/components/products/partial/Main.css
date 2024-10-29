@@ -1,24 +1,42 @@
+/* Định dạng chung cho layout của phần nút */
+.main-buttons {
+  display: flex;
+  justify-content: center; /* Căn giữa nút trong container */
+  align-items: center;
+  gap: 20px; /* Khoảng cách đều giữa các nút */
+  margin: 30px 0; /* Khoảng cách bên ngoài với các thành phần khác */
+  padding: 10px; /* Khoảng cách bên trong container */
+}
+
+/* Định dạng chung cho các nút */
 .btn {
-  padding: 10px 20px; /* Khoảng cách bên trong nút */
+  padding: 12px 24px; /* Khoảng cách bên trong nút */
   font-size: 16px; /* Kích thước chữ */
   font-weight: bold; /* Chữ đậm */
   border: none; /* Bỏ đường viền */
-  border-radius: 5px; /* Bo tròn góc */
+  border-radius: 8px; /* Bo tròn góc */
   cursor: pointer; /* Con trỏ khi di chuột qua */
-  transition: background-color 0.3s, transform 0.3s; /* Hiệu ứng chuyển đổi */
+  transition: background-color 0.3s, transform 0.3s; /* Hiệu ứng chuyển đổi khi hover */
 }
 
+/* Định dạng cho nút chính */
 .btn-primary {
-  background-color: #007bff; /* Màu nền nút */
+  background-color: #007bff; /* Màu nền */
   color: white; /* Màu chữ */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
 }
 
 .btn-primary:hover {
   background-color: #0056b3; /* Màu nền khi di chuột qua */
-  transform: scale(1.05); /* Tăng kích thước nhẹ khi di chuột qua */
+  transform: scale(1.05); /* Hiệu ứng phóng to nhẹ khi di chuột qua */
 }
 
-/* Tạo khoảng cách giữa các nút */
+/* Khoảng cách bên ngoài các nút */
 button {
-  margin-right: 10px; /* Khoảng cách bên phải */
+  margin-right: 10px;
+}
+
+/* Đảm bảo rằng các nút không ảnh hưởng đến các phần khác */
+.main-buttons button:last-child {
+  margin-right: 0; /* Bỏ khoảng cách bên phải nút cuối */
 }

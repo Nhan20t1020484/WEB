@@ -16,7 +16,7 @@ function App() {
     <Routes>
       {user ? (
         <Route path="/" element={<Main />}>
-          <Route index element={<Listpost />} /> {/* Add default route */}
+          <Route index element={<Listpost />} />
           <Route path="home" element={<Listpost />} />
           <Route path="addpost" element={<Addpost />} />
           <Route path="searchpost" element={<Searchpost />} />
